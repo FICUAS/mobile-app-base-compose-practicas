@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">mobile-app-base-compose</string>
+    <string name="home_title">Perfil de usuario</string>
+    <string name="home_email">correo@ejemplo.com</string>
 </resources>
