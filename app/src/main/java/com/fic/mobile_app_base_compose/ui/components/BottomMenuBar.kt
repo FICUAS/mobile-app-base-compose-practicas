@@ -35,7 +35,7 @@ fun BottomMenuBar(navController: NavHostController) {
     NavigationBar(
         containerColor = MaterialTheme.colorScheme.surface,
         // Usamos recursos estáticos (dimens.xml) para la elevación (sombra)
-        tonalElevation = dimensionResource(id = R.dimen.card_elevation)
+        tonalElevation = dimensionResource(id = R.dimen.elevacion_tarjeta)
     ) {
 
         // --- OPCIÓN 1: BITÁCORA ---
@@ -75,10 +75,10 @@ fun BottomMenuBar(navController: NavHostController) {
             icon = {
                 Icon(
                     Icons.Default.Search,
-                    contentDescription = stringResource(id = R.string.nav_catalog)
+                    contentDescription = stringResource(id = R.string.nav_catalogo)
                 )
             },
-            label = { Text(stringResource(id = R.string.nav_catalog)) },
+            label = { Text(stringResource(id = R.string.nav_catalogo)) },
             selected = currentDestination?.hierarchy?.any { it.route == Screen.Catalog.route } == true,
             onClick = {
                 navController.navigate(Screen.Catalog.route) {

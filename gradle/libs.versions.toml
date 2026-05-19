@@ -9,6 +9,7 @@ lifecycleRuntimeKtx = "2.6.1"
 activityCompose = "1.12.4"
 composeBom = "2024.09.00"
 navigationCompose = "2.8.5"
+room = "2.6.0" #Agregar biblioteca ROOM
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -26,6 +27,10 @@ androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" } #Núcleo de Room. Permite usar RoomDatabase, @Entity, @Dao.
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" } # Procesador de anotaciones. Genera automáticamente las implementaciones de tus DAOs y DB.
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" } # Soporte para Kotlin Coroutines y Flow. Facilita consultas asincrónicas y observables.
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

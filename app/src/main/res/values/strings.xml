@@ -1,23 +1,28 @@
 <resources>
-    <string name="app_name">BioBitácora</string>
-    <!-- Navegación -->
-    <string name="nav_bitacora">Bitácora</string>
-    <string name="nav_catalog">Catálogo</string>
+    <string name="nombre_app">BioBitácora</string>
 
-    <!-- Pantalla de Lista -->
-    <string name="title_bitacora">BIOBITÁCORA</string>
-    <string name="empty_list">No hay hallazgos aún</string>
-    <string name="add_description">Agregar nuevo hallazgo</string>
+    <!-- Navegación Inferior -->
+    <string name="nav_bitacora">Bitácora</string>
+    <string name="nav_catalogo">Catálogo</string>
+
+    <!-- Pantalla de Lista (Bitácora) -->
+    <string name="titulo_bitacora">BIOBITÁCORA</string>
+    <string name="lista_vacia">No hay hallazgos registrados aún</string>
+    <string name="agregar_descripcion">Agregar nuevo hallazgo urbano</string>
 
     <!-- Pantalla de Formulario -->
-    <string name="title_new_record">NUEVO REGISTRO</string>
-    <string name="label_title">Título de la especie</string>
-    <string name="label_description">Descripción o notas de campo</string>
-    <string name="btn_save">GUARDAR HALLAZGO</string>
-    <string name="back_button">Regresar</string>
+    <string name="titulo_nuevo_registro">NUEVO REGISTRO</string>
+    <string name="etiqueta_titulo">Nombre del animal o planta</string>
+    <string name="etiqueta_descripcion">¿Cómo es? ¿Dónde lo encontraste?</string>
+    <string name="boton_guardar">REGISTRAR EN BITÁCORA</string>
+    <string name="boton_regresar">Regresar a la pantalla anterior</string>
 
     <!-- Pantalla de Catálogo -->
-    <string name="title_catalog">CATÁLOGO GLOBAL</string>
-    <string name="catalog_status">Estado: Bajo investigación</string>
-    <string name="catalog_details">Ver detalles de conservación</string>
+    <string name="titulo_catalogo">CATÁLOGO GLOBAL</string>
+    <string name="estado_catalogo">Estado: Bajo investigación de campo</string>
+
+
+    <!-- Mensajes de Validación -->
+    <string name="error_titulo_vacio">El nombre de la especie es obligatorio</string>
+    <string name="error_descripcion_vacia">Debes ingresar una descripción o notas de campo</string>
 </resources>

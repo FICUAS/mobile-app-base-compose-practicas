@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Márgenes y Paddings Generales -->
-    <dimen name="margin_small">8.dp</dimen>
-    <dimen name="margin_medium">16.dp</dimen>
-    <dimen name="margin_large">24.dp</dimen>
+    <!-- Márgenes y Rellenos Generales -->
+    <dimen name="margen_pequeno">8.dp</dimen>
+    <dimen name="margen_medio">16.dp</dimen>
+    <dimen name="margen_grande">24.dp</dimen>
 
     <!-- Espaciado entre elementos (SpacedBy) -->
-    <dimen name="spacing_small">8.dp</dimen>
-    <dimen name="spacing_medium">16.dp</dimen>
+    <dimen name="espaciado_pequeno">8.dp</dimen>
+    <dimen name="espaciado_medio">16.dp</dimen>
 
     <!-- Tamaños de componentes -->
-    <dimen name="button_height_standard">50.dp</dimen>
-    <dimen name="card_elevation">4.dp</dimen>
-    <dimen name="icon_size_small">24.dp</dimen>
-    <dimen name="list_item_padding">12.dp</dimen>
+    <dimen name="altura_boton_estandar">50.dp</dimen>
+    <dimen name="elevacion_tarjeta">4.dp</dimen>
+    <dimen name="tamano_icono_pequeno">24.dp</dimen>
+    <dimen name="relleno_elemento_lista">12.dp</dimen>
 
-    <!-- Redondeado (Corners) -->
-    <dimen name="corner_radius_medium">12.dp</dimen>
+    <!-- Redondeado (Esquinas) -->
+    <dimen name="radio_esquina_medio">12.dp</dimen>
 </resources>

@@ -32,7 +32,7 @@ fun CatalogScreen(navController: NavHostController) {
         // Barra superior alineada al centro (Estilo minimalista de M3)
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text(stringResource(R.string.title_catalog)) }
+                title = { Text(stringResource(R.string.titulo_catalogo)) }
             )
         },
         // Inserción del menú de navegación inferior compartido
@@ -53,14 +53,14 @@ fun CatalogScreen(navController: NavHostController) {
                     },
                     supportingContent = {
                         // Texto descriptivo desde strings.xml
-                        Text(stringResource(R.string.catalog_status))
+                        Text(stringResource(R.string.estado_catalogo))
                     }
                 )
 
                 // Línea divisoria con márgenes obtenidos de dimens.xml
                 HorizontalDivider(
                     modifier = Modifier.padding(
-                        horizontal = dimensionResource(R.dimen.margin_medium)
+                        horizontal = dimensionResource(R.dimen.margen_medio)
                     )
                 )
             }

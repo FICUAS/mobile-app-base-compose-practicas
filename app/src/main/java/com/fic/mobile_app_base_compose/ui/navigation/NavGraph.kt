@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import com.fic.mobile_app_base_compose.ui.screens.CatalogScreen
 import com.fic.mobile_app_base_compose.ui.screens.FormScreen
 import com.fic.mobile_app_base_compose.ui.screens.ListScreen
+import com.fic.mobile_app_base_compose.viewmodel.HallazgoViewModel
 
 
 sealed class Screen(val route: String) {
@@ -16,15 +17,22 @@ sealed class Screen(val route: String) {
 }
 
 @Composable
-fun BioNavHost(navController: NavHostController) {
+fun BioNavHost(navController: NavHostController,viewModel: HallazgoViewModel) {
     NavHost(navController = navController, startDestination = Screen.List.route) {
 
         composable(Screen.List.route) {
-            ListScreen(navController)
+            ListScreen(
+                navController = navController,
+                viewModel = viewModel
+            )
         }
 
         composable(Screen.Form.route) {
-            FormScreen(navController)
+
+            FormScreen(
+                navController = navController,
+                viewModel = viewModel
+            )
         }
 
         composable(Screen.Catalog.route) {
