@@ -1,8 +1,10 @@
 package com.fic.mobile_app_base_compose.data.local
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.fic.mobile_app_base_compose.data.model.Hallazgo
 import kotlinx.coroutines.flow.Flow
 
@@ -26,4 +28,18 @@ interface HallazgoDao {
      */
     @Query("SELECT * FROM hallazgos ORDER BY fechaRegistro DESC")
     fun obtenerHallazgos(): Flow<List<Hallazgo>>
+
+    /**
+     * Modifica los datos de un registro existente en la base de datos.
+     * Room utiliza la llave primaria (ID) del objeto para identificar cuál registro modificar.
+     */
+    @Update
+    suspend fun modificar(hallazgo: Hallazgo)
+
+    /**
+     * Elimina un registro específico de la base de datos.
+     * Al igual que actualizar, requiere que el objeto tenga su ID definido para encontrarlo en la tabla.
+     */
+    @Delete
+    suspend fun borrar(hallazgo: Hallazgo)
 }

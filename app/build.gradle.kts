@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    kotlin("kapt") // <-- Habilita procesamiento de anotaciones (KAPT)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -54,7 +54,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     // Room: acceso a base de datos
     implementation(libs.androidx.room.runtime) // Core de Room
-    kapt(libs.androidx.room.compiler) // Genera código para Room
+    ksp(libs.androidx.room.compiler) // Genera código para Room
     implementation(libs.androidx.room.ktx) // Extensiones Kotlin (coroutines, Flow)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

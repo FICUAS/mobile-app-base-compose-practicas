@@ -18,10 +18,30 @@ import com.fic.mobile_app_base_compose.viewmodel.HallazgoViewModel
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FormScreen(navController: NavHostController, viewModel: HallazgoViewModel) {
+fun FormScreen(navController: NavHostController, viewModel: HallazgoViewModel, id: Int) {
 
     val titulo by viewModel.titulo.collectAsState()
     val descripcion by viewModel.descripcion.collectAsState()
+    val listaHallazgos by viewModel.listaHallazgos.collectAsState()
+
+    /**
+     * EFECTO DE CARGA:
+     * Si el ID es distinto de -1, buscamos el elemento en la lista para rellenar los campos.
+     * LaunchedEffect se ejecuta solo cuando el ID cambia.
+     */
+    LaunchedEffect(id) {
+        if (id != -1) {
+            val hallazgo = listaHallazgos.find { it.id == id }
+            hallazgo?.let {
+                viewModel.titulo.value = it.titulo
+                viewModel.descripcion.value = it.descripcion
+            }
+        } else {
+            // Limpieza al crear nuevo registro
+            viewModel.titulo.value = ""
+            viewModel.descripcion.value = ""
+        }
+    }
 
 
     /**

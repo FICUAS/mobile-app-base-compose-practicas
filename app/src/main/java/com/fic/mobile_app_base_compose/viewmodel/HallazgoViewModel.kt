@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.fic.mobile_app_base_compose.data.local.BioBaseDatos
 import com.fic.mobile_app_base_compose.data.model.Hallazgo
+import com.fic.mobile_app_base_compose.data.repository.HallazgoRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -19,15 +20,15 @@ import kotlinx.coroutines.launch
  */
 class HallazgoViewModel(application: Application) : AndroidViewModel(application) {
 
-    // Inicializamos la base de datos y extraemos el lápiz de comandos (DAO)
-    private val baseDatos = BioBaseDatos.obtenerInstancia(application)
-    private val comandosDao = baseDatos.objetoAccesoDatos()
+    // Inicializamos el repositorio
+    private val repository =
+        HallazgoRepository(BioBaseDatos.obtenerInstancia(application).objetoAccesoDatos())
 
     /**
      * 'listaHallazgos' es un contenedor de lectura constante.
      * 'stateIn' transforma el Flow del DAO en un estado que Jetpack Compose puede pintar en tiempo real.
      */
-    val listaHallazgos: StateFlow<List<Hallazgo>> = comandosDao.obtenerHallazgos()
+    val listaHallazgos: StateFlow<List<Hallazgo>> = repository.listaHallazgos
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),
@@ -60,12 +61,31 @@ class HallazgoViewModel(application: Application) : AndroidViewModel(application
             )
 
             // Enviamos el objeto al DAO de Room para escribirlo en SQLite
-            comandosDao.guardar(hallazgoParaGuardar)
+            repository.guardar(hallazgoParaGuardar)
 
             // Limpieza absoluta de las cajas para dejarlas listas en la siguiente captura
             titulo.value = ""
             titulo.value = ""
         }
 
+    }
+
+    /**
+     * Elimina un hallazgo específico. Útil para limpiar la bitácora.
+     */
+    fun eliminarHallazgo(hallazgo: Hallazgo) {
+        viewModelScope.launch {
+            repository.borrar(hallazgo)
+        }
+    }
+
+    /**
+     * Actualiza un hallazgo existente.
+     * Se puede usar al editar un registro previo.
+     */
+    fun actualizarHallazgo(hallazgo: Hallazgo) {
+        viewModelScope.launch {
+            repository.modificar(hallazgo)
+        }
     }
 }
